@@ -7,6 +7,94 @@
     <groupId>com.zhou</groupId>
     <artifactId>zhou-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <spring.version>4.3.7.RELEASE</spring.version>
+    </properties>
 
+
+    <dependencies>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.34</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.14</version>
+        </dependency>
+        <!-- 日志 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+        <!-- 常用工具包 -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.3</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>1.12</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <!-- jetty插件 -->
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.2.7.v20150116</version>
+                <configuration>
+                    <scanIntervalSeconds>3</scanIntervalSeconds>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                    </webApp>
+                    <httpConnector>
+                        <port>1111</port>
+                    </httpConnector>
+                    <reload>automatic</reload>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
