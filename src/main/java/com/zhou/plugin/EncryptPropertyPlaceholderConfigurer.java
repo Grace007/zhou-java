@@ -19,6 +19,7 @@ public class EncryptPropertyPlaceholderConfigurer extends PropertyPlaceholderCon
 
     /**
      * 解密指定propertyName的加密属性值
+     * convertProperty方法会读取每一个properties参数和值,再本方法中要做改造properties
      *
      * @param propertyName
      * @param propertyValue
@@ -28,7 +29,9 @@ public class EncryptPropertyPlaceholderConfigurer extends PropertyPlaceholderCon
     @Override
     protected String convertProperty(String propertyName, String propertyValue) {
         try {
+            logger.info(propertyName+" :"+propertyValue);
             for (String p : propertyNames) {
+
                 if (p.equalsIgnoreCase(propertyName)) {
                     logger.info(AESUtil.AESDecode(propertyValue));
                     return AESUtil.AESDecode(propertyValue);
@@ -37,6 +40,6 @@ public class EncryptPropertyPlaceholderConfigurer extends PropertyPlaceholderCon
         }catch (Exception e){
             logger.error("解密出错!",e);
         }
-        return null;
+        return super.convertProperty(propertyName, propertyValue);
     }
 }

@@ -1,7 +1,5 @@
 package com.zhou;
 
-import com.zhou.test.SpringContextUtilTest;
-import com.zhou.util.SpringContextUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -13,11 +11,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class ApplicationRun {
     private static Logger logger = LoggerFactory.getLogger(ApplicationRun.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         logger.info(">>>>>zhou-dome项目开始启动<<<<<<<");
         new ClassPathXmlApplicationContext("classpath:spring/*.xml");
-        SpringContextUtilTest springContextUtilTest = (SpringContextUtilTest) SpringContextUtil.getBean("springContextUtilTest");
+/*        SpringContextUtilTest springContextUtilTest = (SpringContextUtilTest) SpringContextUtil.getBean("springContextUtilTest");
         springContextUtilTest.show();
+        logger.info("DynamicDataSource.getDataSource() ="+DynamicDataSource.getDataSource());*/
         logger.info(">>>>>zhou-dome项目完成启动<<<<<<<");
+        System.in.read();
     }
 }
