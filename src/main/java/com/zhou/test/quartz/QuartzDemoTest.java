@@ -12,15 +12,32 @@ public class QuartzDemoTest {
 
 
     public static void main(String[] args) throws Exception{
-        //创建调度中心
+        //创建调度中心(调度器)
         Scheduler scheduler = schedulerFactory.getScheduler();
-       //创建jobDeil
+       //创建jobDeil(作业)
         QuartzDemoJob job = new QuartzDemoJob();
+        //JobDetail的作用就是给job作业添加附加信息,比如name,group等
         JobDetail jobDetail = JobBuilder.newJob(job.getClass()).withIdentity("quartzDemoJob").build();
-        //创建调度器
+        //创建触发器
         Trigger trigger = TriggerBuilder.newTrigger().withIdentity("quartzDemoJob","testjob").withSchedule(CronScheduleBuilder.cronSchedule("*/10 * * * * ?")).build();
         //向调度中心注册
+        scheduler.scheduleJob(jobDetail,trigger);
+        // 启动调度
+        scheduler.start();
+    }
 
+
+
+    public void quartzTest1() throws Exception{
+        //创建调度中心(调度器)
+        Scheduler scheduler = schedulerFactory.getScheduler();
+        //创建jobDeil(作业)
+        QuartzDemoJob job = new QuartzDemoJob();
+        //JobDetail的作用就是给job作业添加附加信息,比如name,group等
+        JobDetail jobDetail = JobBuilder.newJob(job.getClass()).withIdentity("quartzDemoJob").build();
+        //创建触发器
+        Trigger trigger = TriggerBuilder.newTrigger().withIdentity("quartzDemoJob","testjob").withSchedule(CronScheduleBuilder.cronSchedule("*/10 * * * * ?")).build();
+        //向调度中心注册
         scheduler.scheduleJob(jobDetail,trigger);
         // 启动调度
         scheduler.start();

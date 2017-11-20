@@ -14,10 +14,8 @@ import java.text.ParseException;
 import java.util.Date;
 
 /**
- * @author ebin
  * @ClassName: QuartzManager
  * @Description: 动态添加、修改和删除定时任务管理类
- * @date 2016年6月22日 下午3:50:10
  */
 
 public class QuartzManager {

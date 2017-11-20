@@ -25,7 +25,6 @@ public class EncryptPropertyPlaceholderConfigurer extends PropertyPlaceholderCon
      * @param propertyValue
      * @return
      */
-
     @Override
     protected String convertProperty(String propertyName, String propertyValue) {
         try {
