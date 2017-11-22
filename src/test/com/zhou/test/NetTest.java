@@ -18,7 +18,7 @@ public class NetTest {
 
     }
     /**
-     * 网上的一片文章用来说明java中Runtime.exec的一些问题.
+     * 网上的一篇文章用来说明java中Runtime.exec的一些问题.
      * 比如下面的要想得到javac的信息.执行程序发现报错.java.lang.IllegalThreadStateException: process has not exited
      * 因为exitValue这个方法是不阻塞的，程序在调用这个方法时外部命令并没有返回所以造成了异常的出现，这里是由另外的方法来等待外部命令执行完毕的，就是waitFor方法，这个方法会一直阻塞直到外部命令执行结束，然后返回外部命令执行的结果
      * 但是使用waitfor()会出现隐患,它使主程序堵塞直到子进程结束.但是我们不知道子进程的结束时间,无法控制.

@@ -24,7 +24,7 @@ public class NetUtils {
 		try {
 			process = runtime.exec("ping " + "www.baidu.com");
 			InputStream is = process.getInputStream();
-			InputStreamReader isr = new InputStreamReader(is);
+			InputStreamReader isr = new InputStreamReader(is,"gb2312");
 			BufferedReader br = new BufferedReader(isr);
 			String line = null;
 			StringBuffer sb = new StringBuffer();
