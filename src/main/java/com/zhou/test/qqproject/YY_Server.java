@@ -39,11 +39,13 @@ public class YY_Server {
 		}catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.println("server启动成功...");
 
 		try {
 			while(started) {
 				//2.监听是否有客户端连接,如果有客户端连接服务器，则accept()方法返回Socket对象
 				Socket socket = serverSocket.accept();
+				System.out.println("有客户端上线,socket = " + socket);
 				//3.获取对象的字节流，调用Client类构造器，实现Runnable接口
 				Client c = new Client(socket);
 				//获取字节输出流，向新上线的客户端发送消息
@@ -123,7 +125,7 @@ public class YY_Server {
 					//3.2通过getInputStream()读取客户端发过来的信息
 					String str = dis.readUTF();
 					//3.2输出接收到的客户端信息
-					System.out.println(str);
+					System.out.println("客户端发来的消息:"+str);
 					//遍历集合
 					for(int i = 0; i < clients.size(); i++) {
 						//得到集合中的Client类型对象
@@ -140,10 +142,10 @@ public class YY_Server {
 			} finally {
 				try {
 					//4.1关闭流
-					if(dis != null) dis.close();
-					if(dos != null) dos.close();
+					if (dis != null) dis.close();
+					if (dos != null) dos.close();
 					//4.2关闭socket
-					if(socket != null)  {
+					if (socket != null) {
 						socket.close();
 					}
 				} catch (IOException e1) {
