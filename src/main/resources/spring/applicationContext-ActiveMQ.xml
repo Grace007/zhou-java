@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://activemq.apache.org/schema/core
+            http://activemq.apache.org/schema/core/activemq-core-5.9.0.xsd">
+
+
+    <!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供 -->
+    <!--
+    <property name="alwaysSessionAsync" value=“true" />
+    对于一个connection如果只有一个session，该值有效，否则该值无效，默认这个参数的值为true。
+    <property name="useAsyncSend" value="true" />
+    将该值开启官方说法是可以取得更高的发送速度（5倍）。
+
+    <bean id="destination" class="org.apache.activemq.command.ActiveMQQueue">
+        &lt;!&ndash; 设置消息队列的名字 &ndash;&gt;
+        <constructor-arg value="ymk.queue?consumer.prefetchSize=100" />
+    </bean>-->
+
+    <bean id="activemqConnectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
+
+        <property name="brokerURL" value="tcp://192.168.0.101:61616" />
+        <property name="useAsyncSend" value="true" />
+        <property name="alwaysSessionAsync" value="true" />
+        <property name="useDedicatedTaskRunner" value="true" />
+    </bean>
+    <!-- 发送消息的目的地（一个队列） -->
+    <bean id="destination" class="org.apache.activemq.command.ActiveMQQueue">
+        <!-- 设置消息队列的名字 -->
+        <constructor-arg value="ymk.queue?consumer.prefetchSize=100" />
+    </bean>
+    <!-- 发送消息的目的地（一个队列） -->
+    <bean id="destination_queue" class="org.apache.activemq.command.ActiveMQQueue">
+        <!-- 设置消息队列的名字 -->
+        <constructor-arg value="ymk.queue.queue" />
+    </bean>
+
+
+</beans>

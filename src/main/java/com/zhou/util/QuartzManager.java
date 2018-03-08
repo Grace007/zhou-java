@@ -3,7 +3,7 @@
 
 package com.zhou.util;
 
-import com.zhou.test.quartz.QuartzDemoJob;
+import com.zhou.test.quartz.quartzDemo.QuartzDemoJob;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 import org.quartz.impl.triggers.CronTriggerImpl;

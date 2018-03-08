@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+
+
+    <!--扫描aop注解-->
+    <context:component-scan base-package="com.zhou.test.aop.annotation"></context:component-scan>
+    <!--在配置IOC的基础上增加了aop:aspectj-autoproxy节点，Spring框架会自动为与AspectJ切面配置的Bean创建代理，proxy-target-class="true"属性表示被代理的目标对象是一个类，而非实现了接口的类，主要是为了选择不同的代理方式。-->
+    <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
+</beans>

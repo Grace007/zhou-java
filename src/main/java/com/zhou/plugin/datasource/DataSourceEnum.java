@@ -41,7 +41,7 @@ public enum DataSourceEnum {
     public String getDefault(){
         String defaultDataSource = "";
         for (DataSourceEnum dataSourceEnum :DataSourceEnum.values()){
-            if (StringUtils.isEmpty(defaultDataSource)){
+            if (!StringUtils.isEmpty(defaultDataSource)){
                 break;
             }
             if (dataSourceEnum.master){

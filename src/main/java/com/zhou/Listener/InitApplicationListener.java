@@ -1,6 +1,6 @@
 package com.zhou.Listener;
 
-import com.zhou.test.quartz.QuartzDemoTest;
+import com.zhou.test.quartz.quartzDemo.QuartzDemoTest;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 /**
+ * 配置应用监听器,监听容器启动和停止
  * @author eli
  * @date 2017/11/3 12:07
  */

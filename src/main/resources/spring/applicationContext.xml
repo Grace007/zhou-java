@@ -12,5 +12,15 @@
     <!--<bean id="springContextUtilTest" class="com.zhou.test.SpringContextUtilTest"></bean>-->
     <!--<bean id="initApplicationListener" class="com.zhou.Listener.InitApplicationListener"></bean>-->
     <!--<context:annotation-config/>-->
-    <context:component-scan base-package="com.zhou"></context:component-scan>
+
+
+    <!--Filter Type	Examples Expression	Description
+    annotation	org.example.SomeAnnotation	符合SomeAnnoation的target class
+    assignable	org.example.SomeClass	指定class或interface的全名
+    aspectj	org.example..*Service+	AspectJ语法
+    regex	org\.example\.Default.*	Regelar Expression
+    custom	org.example.MyTypeFilter	Spring3新增自订Type，实作org.springframework.core.type.TypeFilter-->
+    <context:component-scan base-package="com.zhou">
+        <context:exclude-filter type="regex" expression="com.zhou.test.aop.*"/>
+    </context:component-scan>
 </beans>

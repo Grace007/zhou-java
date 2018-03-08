@@ -1,0 +1,63 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+
+    <bean id="tDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+        <property name="url" value="jdbc:mysql://localhost:8066/mysql_test?useUnicode=true"/>
+    </bean>
+
+    <!--<bean id="biDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+        <property name="username" value="bin.e"/>
+        <property name="password" value="hcr@123"/>
+        <property name="url" value="jdbc:sqlserver://new1.bds-analytics.com:1433;DatabaseName=DC_ELEME"/>
+    </bean>-->
+
+    <bean id="lDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/hcr_mysql?useUnicode=true"/>
+    </bean>
+
+    <bean id="o2oDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="username" value="new_root"/>
+        <property name="password" value="@Hyipsos"/>
+        <property name="url" value="jdbc:mysql://rou1.bds-analytics.com:13004/buzz_o2o?useUnicode=true"/>
+    </bean>
+
+
+
+    <bean id="tDao" class="org.nutz.dao.impl.NutDao">
+        <property name="dataSource">
+            <ref local="tDataSource"/>
+        </property>
+    </bean>
+    <!--<bean id="biDao" class="org.nutz.dao.impl.NutDao">
+        <property name="dataSource">
+            <ref local="biDataSource"/>
+        </property>
+    </bean>-->
+    <bean id="lDao" class="org.nutz.dao.impl.NutDao">
+        <property name="dataSource">
+            <ref local="lDataSource"/>
+        </property>
+    </bean>
+    <bean id="o2oDao" class="org.nutz.dao.impl.NutDao">
+        <property name="dataSource">
+            <ref local="o2oDataSource"/>
+        </property>
+    </bean>
+
+</beans>

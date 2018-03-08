@@ -37,12 +37,10 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
      * @return
      */
     public static String getDataSource(){
-        logger.info("DynamicDataSource.getDataSource()");
         String dataSource = contextHolder.get();
         if (dataSource == null ){
             DynamicDataSource.setDataSource(DataSourceEnum.MASTER.getDefault());
         }
-        logger.info(contextHolder.get());
         return contextHolder.get() ;
     }
 

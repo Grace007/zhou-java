@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * java注解形式配置bean
  * @author eli
  * @date 2017/11/3 12:19
  */

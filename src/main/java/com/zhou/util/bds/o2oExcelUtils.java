@@ -31,7 +31,7 @@ public class o2oExcelUtils {
 
 		//String file = "E:\\Test\\每日监测1123.xlsx";
 		String file = "E:\\Test\\eleme.xlsx";
-		//String file = "E:\\Test\\eleme.xlsx";
+		//String file = "E:\\Test\\baidu.xlsx";
 		List<Map> valueList = new ArrayList<Map>();
 		try {
 			valueList = readExcel2007(file,0);
@@ -449,7 +449,7 @@ public class o2oExcelUtils {
 				baiduUrl.setProject_code("o2o");
 				baiduUrl.setDown_type("get_o2o_info");
 
-				System.out.println("##############");
+				System.out.println("##############"+i);
 				System.out.println("baiduUrl = " + baiduUrl.getShop_id());
 				System.out.println("baiduUrl = " + baiduUrl.getTask_id());
 				System.out.println("baiduUrl = " + baiduUrl.getUrl());
@@ -457,6 +457,7 @@ public class o2oExcelUtils {
 					baidudao.insert(baiduUrl);
 				} catch (Exception e) {
 					System.out.println("可能是重复的");
+					System.out.println(e);
 					num++;
 				}
 			}
@@ -488,6 +489,7 @@ public class o2oExcelUtils {
 				try {
 					elemedao.insert(elemeUrl);
 				} catch (Exception e) {
+					System.out.println(e);
 					System.out.println("可能是重复的");
 					num++;
 				}
