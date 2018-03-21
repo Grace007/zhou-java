@@ -1,4 +1,4 @@
-package com.zhou.test.threadpool.lock.wait;
+package com.zhou.test.thread.lock.wait;
 
 /**
  * 一个线程操作的时候，doWait()会一直堵塞

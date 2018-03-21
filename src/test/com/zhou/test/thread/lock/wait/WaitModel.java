@@ -1,4 +1,4 @@
-package com.zhou.test.threadpool.lock.wait;
+package com.zhou.test.thread.lock.wait;
 
 /**
  * 诡异的java.lang.IllegalMonitorStateException

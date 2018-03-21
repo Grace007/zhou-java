@@ -1,4 +1,4 @@
-package com.zhou.test.threadpool;
+package com.zhou.test.thread.threadpool;
 
 import java.util.concurrent.Callable;
 

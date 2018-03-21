@@ -1,4 +1,4 @@
-package com.zhou.test.threadpool.example;
+package com.zhou.test.thread.example;
 
 import java.util.ArrayList;
 import java.util.HashSet;

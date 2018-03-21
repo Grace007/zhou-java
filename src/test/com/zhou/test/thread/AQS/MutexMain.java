@@ -1,4 +1,4 @@
-package com.zhou.test.threadpool.AQS;
+package com.zhou.test.thread.AQS;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package com.zhou.test.threadpool;
+package com.zhou.test.thread.threadpool;
 
 import org.junit.Test;
 
