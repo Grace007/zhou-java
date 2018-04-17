@@ -30,7 +30,7 @@ public class o2oExcelUtils {
 	public static void main(String[] args) {
 
 		//String file = "E:\\Test\\每日监测1123.xlsx";
-		String file = "E:\\Test\\eleme.xlsx";
+		String file = "E:\\Test\\0412\\eleme0412.xlsx";
 		//String file = "E:\\Test\\baidu.xlsx";
 		List<Map> valueList = new ArrayList<Map>();
 		try {

@@ -5,8 +5,6 @@ import org.apache.commons.io.FilenameUtils;
 import org.junit.Test;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author eli
@@ -108,11 +106,19 @@ public class FileIOTest {
     }
 
     @Test
-    public void test5(){
-        List<String> list = new ArrayList<>();
-        list.add("111");
-        list.add("222");
-        System.out.println("list = " + list.toString());
+    public void test5() throws Exception{
 
+
+        byte[] bs = new byte[] { 1, 2, 3, 4, 5 };
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        out.write(bs);
+        ByteArrayInputStream in = new ByteArrayInputStream(out.toByteArray());
+        byte[] bs1 = new byte[1024];
+        int len = in.read(bs);
+        for (int i = 0; i < len; i++) {
+            System.out.println(bs[i]);
+        }
     }
+
+
 }

@@ -30,7 +30,7 @@ public class o2oKeywordExcelUtils {
 	public static void main(String[] args) {
 
 		//String file = "E:\\Test\\每日监测1123.xlsx";
-		String file = "E:\\Test\\3.29\\0329.xlsx";
+		String file = "E:\\Test\\4.17\\0417.xlsx";
 		//String file = "E:\\Test\\baidu.xlsx";
 		List<Map> valueList = new ArrayList<Map>();
 		try {
@@ -515,15 +515,16 @@ public class o2oKeywordExcelUtils {
 
 				BaiduWaimaiKeywordTaskJob baiduUrl = new BaiduWaimaiKeywordTaskJob();
 
-				baiduUrl.setRequest_id(20180314);
-				baiduUrl.setTask_id(78L);
+				baiduUrl.setRequest_id(20180417);
+				baiduUrl.setTask_id(20180417L);
 				baiduUrl.setCity_name(valueList.get(i).get("city_name").toString());
 				try {
 					baiduUrl.setKeyword(valueList.get(i).get("keyword").toString());
 				} catch (Exception e1) {
 				}
 
-//				baiduUrl.setShop_name("麦当劳");
+				baiduUrl.setShop_name("肯德基");
+				baiduUrl.setRemark("_all");
 				baiduUrl.setCreate_time(new Date());
 				baiduUrl.setCreate_date(new Date());
 				baiduUrl.setStatus(999);
@@ -549,18 +550,19 @@ public class o2oKeywordExcelUtils {
 
 				EleMeSearchUrlJob elemeUrl = new EleMeSearchUrlJob();
 
-				elemeUrl.setRequest_id(20180314L);
-				elemeUrl.setTask_id(20180314L);
+				elemeUrl.setRequest_id(20180417L);
+				elemeUrl.setTask_id(20180417L);
 				elemeUrl.setCity_name(valueList.get(i).get("city_name").toString());
 				//elemeUrl.setRemark(valueList.get(i).get("remark").toString());
 				try {
 					elemeUrl.setKeyword(valueList.get(i).get("keyword").toString());
 				} catch (Exception e1) {
 				}
-				elemeUrl.setShopKeyword("麦当劳");
+				elemeUrl.setShopKeyword("肯德基");
 
 				elemeUrl.setCreate_time(new Date());
 				elemeUrl.setStatus(999);
+				elemeUrl.setRemark("_all");
 				elemeUrl.setProject_code("o2o");
 				elemeUrl.setDown_type("get_o2o_info");
 				System.out.println("##############"+i);
